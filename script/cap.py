@@ -9,7 +9,6 @@ from datetime import datetime
 basedir = "/tmp/cap/"
 if not os.path.exists(basedir):
     os.mkdir(basedir)
-token=os.environ["SLACK_TOKEN"]
 
 def capture():
     d = datetime.now().strftime("%Y%m%d%H%M%S")
