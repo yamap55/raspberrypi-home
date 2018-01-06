@@ -10,5 +10,5 @@ fi
 message="ロボです。${time}をお知らせします。"
 result=`/home/yamap55/raspberrypi-home/script/jsay "$message"`
 
-echo `date "+%Y/%m/%d %H:%M:%S"` ${result} >> /home/yamap55/raspberrypi-home/script/log/time_report.log
+echo `date "+%Y/%m/%d %H:%M:%S"` ${result} >> /home/yamap55/raspberrypi-home/script/logs/time_report.log
 
