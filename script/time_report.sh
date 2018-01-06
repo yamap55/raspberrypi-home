@@ -8,5 +8,7 @@ if [ "${m}" != "00" ] ; then
 fi
 
 message="ロボです。${time}をお知らせします。"
-/home/yamap55/raspberrypi-home/script/jsay "$message"
+result=`/home/yamap55/raspberrypi-home/script/jsay "$message"`
+
+echo `date "+%Y/%m/%d %H:%M:%S"` ${result} >> /home/yamap55/raspberrypi-home/script/log/time_report.log
 
