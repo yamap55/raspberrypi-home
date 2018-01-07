@@ -1,3 +1,4 @@
 0,30 0-2,7-23 * * * /home/yamap55/raspberrypi-home/script/time_report.sh
+1 9,20 * * * /home/yamap55/raspberrypi-home/script/takePhoto.sh
 0 0 * * * crontab -l > /home/yamap55/raspberrypi-home/script/crontab.bk
 
