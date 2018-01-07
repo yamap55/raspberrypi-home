@@ -52,7 +52,7 @@ module.exports = (robot) ->
       # 外部コマンドの実行
       # child_process.exec "sh /usr/local/bin/jsay '#{result_text}'", (error, stdout, stderr) ->
 
-      child_process.exec "sh /home/yamap55/raspberrypi-home/script/jsay '#{result_text}'", (error, stdout, stderr) ->
+      child_process.exec "sh /home/yamap55/raspberrypi-home/script/util/jsay '#{result_text}'", (error, stdout, stderr) ->
         # コマンド実行した標準出力をbotが話す
         msg.send(stdout)
 
