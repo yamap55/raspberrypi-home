@@ -19,6 +19,6 @@
 child_process = require('child_process')
 
 module.exports = (robot) ->
-  robot.respond /写真を?[撮と]って/, (msg) ->
+  robot.respond /(写真|しゃしん)を?[撮と]って/, (msg) ->
     msg.send("シャシントリマスネ")
-    child_process.exe "bash /home/yamap55/raspberrypi-home/script/takePhoto.sh", (error, stdout, stderr) ->
+    child_process.exec "bash /home/yamap55/raspberrypi-home/script/takePhoto.sh", (error, stdout, stderr) ->
