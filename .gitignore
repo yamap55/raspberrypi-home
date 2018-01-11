@@ -3,6 +3,7 @@ old
 *.bk
 *.bak
 *.old
+*.swp
 
 # log
 logs
@@ -10,4 +11,6 @@ logs
 
 # Dependency directories
 node_modules/
+
+.DS_Store
 
