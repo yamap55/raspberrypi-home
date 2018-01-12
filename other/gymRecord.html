@@ -23,6 +23,10 @@
         <input type="date" class="form-control" id="date" required/>
       </div>
       <div class="form-group">
+        <label for="hour">時間</label>
+        <input type="number" class="form-control" id="hour" value="1" required/>
+      </div>
+      <div class="form-group">
         <label for="distance">距離</label>
         <input type="number" class="form-control" id="distance" required/>
       </div>
@@ -47,7 +51,7 @@
     }
 
     function createMessage() {
-      return "日付 : " + $("#date").val() + "\n距離 : " + $("#distance").val() + "\n備考 : " + $("#memo").val()
+      return "日付 : " + $("#date").val() + "\n時間 : " + $("#hour").val() + "\n距離 : " + $("#distance").val() + "\n備考 : " + $("#memo").val()
     }
 
     $(function () {
