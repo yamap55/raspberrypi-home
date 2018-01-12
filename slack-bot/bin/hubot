@@ -6,6 +6,5 @@ set -e
 npm install
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
 
-#exec node_modules/.bin/hubot --name "mybot" "$@"
+#exec node_modules/.bin/hubot --name "mybot" -a slack
 forever start -l /home/yamap55/raspberrypi-home/slack-bot/logs/hubot.log -a -c coffee node_modules/.bin/hubot -a slack
-
