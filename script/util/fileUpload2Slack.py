@@ -23,11 +23,10 @@ if (len(argvs) < 3):
 filePath = argvs[1]
 channel = "#" + argvs[2]
 
+token = os.environ["SLACK_TOKEN"]
+slack = Slacker(token)
 if (len(argvs) >= 4):
     message = argvs[3]
-    token = os.environ["SLACK_TOKEN"]
-
-    slack = Slacker(token)
     slack.chat.post_message(channel, message)
 
 slack.files.upload(filePath, filename="cap.png",channels=channel)
