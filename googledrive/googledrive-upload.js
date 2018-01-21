@@ -1,6 +1,6 @@
 var fs = require('fs');
 var google = require('googleapis');
-var googleAuthWrapper = require("./util/googleDrive.js")
+var googleAuthWrapper = require("./googleDrive.js")
 
 googleAuthWrapper.execute(a);
 
