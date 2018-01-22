@@ -28,7 +28,7 @@ token = os.environ["SLACK_TOKEN"]
 slack = Slacker(token)
 if (len(argvs) >= 5):
     message = argvs[4]
-    slack.chat.post_message(channel, message)
+    slack.chat.post_message(channel, message,as_user=True)
 
 slack.files.upload(filePath, filename=fileName, channels=channel)
 
