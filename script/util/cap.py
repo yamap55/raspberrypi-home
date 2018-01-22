@@ -12,7 +12,7 @@ if not os.path.exists(basedir):
 
 def capture():
     d = datetime.now().strftime("%Y%m%d%H%M%S")
-    capName = basedir + "cap_" + d + ".jpg"
+    capName = basedir + d + ".jpg"
     c = cv2.VideoCapture(0)
     r, img = c.read()
     cv2.imwrite(capName, img)

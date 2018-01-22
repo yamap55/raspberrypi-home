@@ -14,20 +14,21 @@ import sys
 import os
 
 # 引数
-# filepath, channel, [message]
+# filepath, channel, fileName, [message]
 argvs = sys.argv
-if (len(argvs) < 3):
+if (len(argvs) < 4):
     print "args is required."
     quit()
 
 filePath = argvs[1]
 channel = "#" + argvs[2]
+fileName = argvs[3]
 
 token = os.environ["SLACK_TOKEN"]
 slack = Slacker(token)
-if (len(argvs) >= 4):
-    message = argvs[3]
+if (len(argvs) >= 5):
+    message = argvs[4]
     slack.chat.post_message(channel, message)
 
-slack.files.upload(filePath, filename="cap.png",channels=channel)
+slack.files.upload(filePath, filename=fileName, channels=channel)
 
