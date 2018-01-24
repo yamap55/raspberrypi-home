@@ -15,7 +15,7 @@
 #
 # Author:
 #  yamap55
-
+child_process = require('child_process')
 GoogleSpreadsheet = require('google-spreadsheet');
 module.exports = (robot) ->
   robot.hear /日付 : (.*)\s時間 : (.*)\s距離 : (.*)\s備考 : (.*)/i, (msg) ->
@@ -46,6 +46,7 @@ module.exports = (robot) ->
             interval = (new Date("2018-01-29").getTime() - new Date(gymDate).getTime())/(1000*60*60*24)
           else
             msg.send("Tweetジュンビニシッパイシマシタ : " + err)
+            return
         )
 
         # Spreadsheetに書込み
@@ -59,5 +60,12 @@ module.exports = (robot) ->
       );
     );
     # Twitterに投げる
-    message = "#ジム #プール 完了。#{interval}日ぶり#{gymCount}回目、#{gymTime}hで#{gymRange}m。#{gymMemo}".slice(0,140)
-    # child_process.exec "/home/yamap55/raspberrypi-home/script/util/tweet '#{message}'"
+    message = "#ジム #プール 完了。#{interval}日ぶり#{gymCount}回目、#{gymTime}hで#{gymRange}m。#{gymMemo}"
+    if (message.length > 140)
+      msg.send("140モジイジョウナノデツイートシナイヨ : " + message.length + "モジ\n" + message)
+    else
+      child_process.exec "/home/yamap55/raspberrypi-home/script/util/tweet.py '#{message}'", (error, stdout, stderr) ->
+        if !error
+          msg.send("ツイートシタヨ : " + stdout)
+        else
+          msg.send("ツイートニシッパイシタヨ : " + stderr)
