@@ -27,7 +27,6 @@ consumer_secret = os.environ["TWITTER_COSUMER_SECRET"]
 
 t = Twitter(
             auth=OAuth(token, token_secret, consumer_key, consumer_secret))
-#t.statuses.update(status="Using @sixohsix's sweet Python Twitter Tools.")
-aaa=t.statuses.update(status=sys.argv[1])
-print aaa
+result=t.statuses.update(status=sys.argv[1])
+print "https://twitter.com/yamap_55/status/" + result['id_str']
 
