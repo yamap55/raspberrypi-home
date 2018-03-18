@@ -1,7 +1,8 @@
 # 時報
 0,30 0-2,7-23 * * * /home/yamap55/raspberrypi-home/script/time_report.sh
 # リビング写真
-1 9,20 * * * /bin/bash -l /home/yamap55/raspberrypi-home/script/takePhoto.sh >> /home/yamap55/raspberrypi-home/script/logs/takePhoto.log 2>&1
+1 20 * * * /bin/bash -l /home/yamap55/raspberrypi-home/script/takePhoto.sh >> /home/yamap55/raspberrypi-home/script/logs/takePhoto.log 2>&1
+31 8 * * * /bin/bash -l /home/yamap55/raspberrypi-home/script/takePhoto.sh >> /home/yamap55/raspberrypi-home/script/logs/takePhoto.log 2>&1
 # 誕生日通知
 0 0 * * * /bin/bash -l -c /home/yamap55/raspberrypi-home/script/birthday.py >> /home/yamap55/raspberrypi-home/script/logs/birthday.log 2>&1
 # cron backup
