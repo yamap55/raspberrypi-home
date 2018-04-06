@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="none" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Housework</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container d-none" id="loading-container">
+    <div class="loading mx-auto"></div>
+  </div>
+  <div class="container" id="main-container">
+    <form action="" method="post" target="_blank" id="form">
+      <div class="form-group">
+        <label for="date">日付</label>
+        <input type="date" class="form-control" name="date" id="date" required/>
+      </div>
+      <div class="form-group">
+        <div>朝食</div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="breakfast" id="breakfast_ok" value="○">
+            ○
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="breakfast" id="breakfast_cq" value="△">
+            △
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="breakfast" id="breakfast_ng" value="×">
+            ×
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="breakfast" id="breakfast_no" value="-">
+            外食
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>昼飯</div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="lunch" id="lunch_ok" value="○">
+            ○
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="lunch" id="lunch_cq" value="△">
+            △
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="lunch" id="lunch_ng" value="×">
+            ×
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="lunch" id="lunch_no" value="-">
+            外食
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>夕食</div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="dinner" id="dinner_ok" value="○">
+            ○
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="dinner" id="dinner_cq" value="△">
+            △
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="dinner" id="dinner_ng" value="×">
+            ×
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="dinner" id="dinner_no" value="-">
+            外食
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>洗濯</div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="washing" id="washing_ok" value="○">
+            ○
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="washing" id="washing_cq" value="△">
+            △
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="washing" id="washing_ng" value="×">
+            ×
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>掃除</div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="cleaning" id="cleaning_ok" value="○">
+            ○
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="cleaning" id="cleaning_cq" value="△">
+            △
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="cleaning" id="cleaning_ng" value="×">
+            ×
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>お風呂</div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="bath" id="bath_ok" value="○">
+            ○
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="bath" id="bath_cq" value="△">
+            △
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="bath" id="bath_ng" value="×">
+            ×
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="memo">備考</label>
+        <textarea class="form-control" name="memo" id="memo"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <script>
+    const ACTION_URL = "";
+    const AJAX_URL = "";
+    function getNowOfString() {
+       return yyyymmdd(new Date());
+    }
+
+    function yyyymmdd(d) {
+      const y0 = ('0000' + d.getFullYear()).slice(-4);
+      const m0 = ('00' + (d.getMonth() + 1)).slice(-2);
+      const d0 = ('00' + d.getDate()).slice(-2);
+      return y0 + "-" + m0 + "-" + d0;
+    }
+
+    // IDを作成（ラヂオ対応）
+    function createId(name, ev) {
+      let result = "";
+      if (ev === "○") {
+        result = "ok";
+      } else if (ev === "△") {
+        result = "cq";
+      } else if (ev === "×") {
+        result = "ng";
+      } else if (ev === "-") {
+        result = "no";
+      } else {
+        return name;
+      }
+      return name + "_" + result;
+    }
+
+    // loading と mainの表示を切り替える
+    function toggle() {
+      if($("#main-container").hasClass("d-none")) {
+        $("#loading-container").addClass("d-none");
+        $("#main-container").removeClass("d-none");
+      } else {
+        $("#loading-container").removeClass("d-none");
+        $("#main-container").addClass("d-none");
+      }
+    }
+
+    // 日付が変更されたら値をスプレッドシートから取得して設定する。
+    $("#date").on("change", function(){
+      toggle();
+      $.ajax({
+        url:AJAX_URL,
+        type:"GET",
+        data:{
+          date:$("#date").val()
+        }
+      })
+      // Ajaxリクエストが成功した時発動
+      .done((data) => {
+        if (data.inputDate) {
+          // データが登録されていた場合には値を設定する
+          Object.keys(data).forEach(key=> {
+            console.log(key + " : " + data[key]);
+            if (key === "date" || key === "inputDate") {
+              // 対象のKeyの場合は設定しない
+              return;
+            }
+            const id = createId(key, data[key]);
+            const target = $("#" + id);
+
+            if (target.attr("type") === "radio") {
+              target.attr("checked", true);
+            } else {
+              target.val(data[key]);
+            }
+          });
+        }
+      })
+      // Ajaxリクエストが失敗した時発動
+      .fail((data, textStatus, errorThrown) => {
+        console.log("データの取得に失敗");
+        console.log(JSON.stringify(data));
+        console.log(JSON.stringify(textStatus));
+        console.log(JSON.stringify(errorThrown));
+        alert("データの取得に失敗しました。ログを確認してください。");
+      })
+      // Ajaxリクエストが成功・失敗どちらでも発動
+      .always((data) => {
+        toggle();
+      });
+    });
+    $(function(){
+      $("#form").attr("action", ACTION_URL);
+      // 当日日付を設定
+      $("#date").val(getNowOfString()).change();
+    });
+  </script>
+</body>
+</html>
