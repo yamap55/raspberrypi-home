@@ -237,11 +237,15 @@
             const target = $("#" + id);
 
             if (target.attr("type") === "radio") {
-              target.attr("checked", true);
+              target.prop("checked", true);
             } else {
               target.val(data[key]);
             }
           });
+        } else {
+          // 登録されていない場合には初期化する
+          $("input[type='radio']").prop("checked",false);
+          $("form").find("input[type='text'],textarea").val("");
         }
       })
       // Ajaxリクエストが失敗した時発動
