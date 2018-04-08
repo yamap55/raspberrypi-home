@@ -172,8 +172,10 @@
     </form>
   </div>
   <script>
-    const ACTION_URL = "";
-    const AJAX_URL = "";
+    const urlParams = new URLSearchParams(window.location.search);
+    const gasHash = urlParams.get('hash');
+
+    const GAS_URL = "https://script.google.com/macros/s/" + gasHash + "/exec";
     function getNowOfString() {
        return yyyymmdd(new Date());
     }
@@ -217,7 +219,7 @@
     $("#date").on("change", function(){
       toggle();
       $.ajax({
-        url:AJAX_URL,
+        url:GAS_URL,
         type:"GET",
         data:{
           date:$("#date").val()
@@ -262,7 +264,7 @@
       });
     });
     $(function(){
-      $("#form").attr("action", ACTION_URL);
+      $("#form").attr("action", GAS_URL);
       // 当日日付を設定
       $("#date").val(getNowOfString()).change();
     });
