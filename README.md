@@ -23,7 +23,7 @@ vi ./config.json
 mkdir secret
 vi ./secret/birthday-list.txt
 
-crontab ./script/crontab.bk
+crontab ./crontab.bk
 ```
 
 ## script
