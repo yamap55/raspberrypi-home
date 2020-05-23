@@ -6,7 +6,6 @@ old
 *.swp
 
 # log
-logs
 *.log
 
 # Dependency directories
@@ -14,5 +13,9 @@ node_modules/
 
 .DS_Store
 
-secret
+# secret
+secret/
+config.json
 
+# python
+.venv
