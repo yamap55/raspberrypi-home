@@ -1,19 +1,15 @@
-#!/usr/bin/env python
-# coding: utf-8
 from slacker import Slacker
 import datetime
-from datetime import timedelta
 import os
+import json
+
+SETTING_FILE_PATH = '/home/yamap55/raspberrypi-home/config.json'
+NOTIFICATION_CHANNEL = '#random'
 
 today = datetime.date.today()
 tyear = today.year
 tday = today.day
 tmonth = today.month
-
-token = os.environ["SLACK_TOKEN"]
-slack = Slacker(token)
-channel = "#random"
-#channel = "#test"
 
 with open("/home/yamap55/raspberrypi-home/secret/birthday-list.txt", "r") as f:
     for line in f.readlines():
@@ -27,4 +23,8 @@ with open("/home/yamap55/raspberrypi-home/secret/birthday-list.txt", "r") as f:
 
         if tdatetime.day == tday and tdatetime.month == tmonth:
             y = tyear - tdatetime.year
-            slack.chat.post_message(channel, message.format(y),as_user=True)
+
+            with open(SETTING_FILE_PATH, 'r') as f:
+                config  = json.load(f)
+                slack = Slacker(config['SLACK_TOKEN'])
+                slack.chat.post_message(NOTIFICATION_CHANNEL, message.format(y), as_user=True)
