@@ -1,6 +1,31 @@
 # Raspberry Pi @ home
 我が家のRaspberry Piで動いている奴等です。
 
+## 環境作成
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+sudo apt-get install open-jtalk open-jtalk-mecab-naist-jdic hts-voice-nitech-jp-atr503-m001
+
+git clone https://github.com/yamap55/raspberrypi-home.git
+cd raspberrypi-home
+
+python3 -m venv .venv
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# TOKEN設定
+cp ./config_template.json ./config.json
+vi ./config.json
+
+# TODO: 
+mkdir secret
+vi ./secret/birthday-list.txt
+
+crontab ./script/crontab.bk
+```
+
 ## script
 - crontab.bk
   - cronのバックアップ。
