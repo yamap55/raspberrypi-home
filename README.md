@@ -14,7 +14,7 @@
   - Raspberry Piに接続されているカメラで写真を撮る。
 - fileUpload2Slack.py
   - ファイルをSlackにアップロード。
-- jsay
+- jsay.sh
   - 指定された文章を喋る。
 
 ## slack-bot
