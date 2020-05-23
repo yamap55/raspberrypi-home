@@ -1,31 +1,19 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-import cv2
+import subprocess, sys
 import os
-import os.path
 import time
 from datetime import datetime
 
-basedir = "/tmp/cap/"
+basedir = '/home/yamap55/cap/'
+cap_resolution = '640x480'
+
 if not os.path.exists(basedir):
-    os.mkdir(basedir)
+    os.makedirs(basedir)
 
-def capture():
-    d = datetime.now().strftime("%Y%m%d%H%M%S")
-    capName = basedir + d + ".jpg"
-    c = cv2.VideoCapture(0)
-    r, img = c.read()
-    cv2.imwrite(capName, img)
-    c.release()
-    return capName
+d = datetime.now().strftime("%Y%m%d%H%M%S")
+file_path = os.path.join(basedir, f'{d}.jpg', )
 
-filePath = capture()
-size = os.path.getsize(filePath)
-while size == 0:
-    # エラーで0byteになる事があるため撮れるまで回す
-    os.remove(filePath)
-    time.sleep(0.5)
-    filePath = capture()
-    size = os.path.getsize(filePath)
+cp = subprocess.run(['fswebcam', '-r', cap_resolution, file_path])
+if cp.returncode != 0:
+    sys.exit(1)
 
-print filePath
+print(file_path)
