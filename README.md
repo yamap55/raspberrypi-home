@@ -2,6 +2,8 @@
 我が家のRaspberry Piで動いている奴等です。
 
 ## 環境作成
+詳細は「[自宅Raspberry Pi再構築メモ](http://yamap55.hatenablog.com/entry/2020/05/24/015042)」を参考
+
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -12,6 +14,7 @@ git clone https://github.com/yamap55/raspberrypi-home.git
 cd raspberrypi-home
 
 python3 -m venv .venv
+source /home/yamap55/raspberrypi-home/.venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 
