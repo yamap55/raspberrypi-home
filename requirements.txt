@@ -1,1 +1,6 @@
 slacker==0.14.0
+
+# dev
+flake8==3.8.2
+black==19.10b0
+rope==0.17.0
