@@ -19,3 +19,6 @@ config.json
 
 # python
 .venv
+
+# Rope project settings
+.ropeproject
