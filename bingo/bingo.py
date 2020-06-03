@@ -2,10 +2,16 @@ import random
 import subprocess
 
 JSAY_PATH = "/home/yamap55/raspberrypi-home/script/util/jsay.sh"
+MIN_NUMBER = 1
+MAX_NUMBER = 75
+COLUMN_STR = "BINGO"
 
 
 def get_column_name(n: int):
-    return "BINGO"[n // 15]
+    # 割り切れた数値までがその前の値になるため-1
+    # 例 : 15はBとなり、75はOとなる
+    n = n - 1 if n > 1 else 1
+    return COLUMN_STR[n // 15]
 
 
 def say(message: str):
@@ -14,10 +20,11 @@ def say(message: str):
     return r
 
 
-target_list = random.sample(range(1, 76), 75)
+nums = range(MIN_NUMBER, MAX_NUMBER + 1)
+target_list = random.sample(nums, len(nums))
 output_list = []
 while target_list:
-    input_ = input('エンターで次の数値、"a"で出た数値を表示、数値で出たか確認')
+    input_ = input('エンターで次の数値、"a"で出た数値を表示、"数値"で出たか確認、"end"で終わり')
     if input_ == "a":
         sorted_list = sorted(output_list, key=lambda x: int(x))
         print(sorted_list)
