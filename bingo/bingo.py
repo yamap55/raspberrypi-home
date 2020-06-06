@@ -23,6 +23,7 @@ def say(message: str):
 nums = range(MIN_NUMBER, MAX_NUMBER + 1)
 target_list = random.sample(nums, len(nums))
 output_list = []
+say("ビンゴ はーじーめーるーよー")
 while target_list:
     input_ = input('エンターで次の数値、"a"で出た数値を表示、"数値"で出たか確認、"end"で終わり')
     if input_ == "a":
