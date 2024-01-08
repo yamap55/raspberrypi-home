@@ -2,6 +2,8 @@ SHELL=/bin/bash
 
 # 時報
 0,30 0-2,7-23 * * * /home/yamap55/raspberrypi-home/script/time_report.sh
+15 0-2,7-23 * * * /home/yamap55/raspberrypi-home/script/util/jsay.sh 三
+45 0-2,7-23 * * * /home/yamap55/raspberrypi-home/script/util/jsay.sh きゅ
 # リビング写真
 31 19 * * * /home/yamap55/raspberrypi-home/script/takePhoto.sh >> /home/yamap55/raspberrypi-home/logs/takePhoto.log 2>&1
 31 7 * * * /home/yamap55/raspberrypi-home/script/takePhoto.sh >> /home/yamap55/raspberrypi-home/logs/takePhoto.log 2>&1
