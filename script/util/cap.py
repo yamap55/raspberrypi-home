@@ -12,7 +12,7 @@ if not os.path.exists(basedir):
 d = datetime.now().strftime("%Y%m%d%H%M%S")
 file_path = os.path.join(basedir, f'{d}.jpg', )
 
-cp = subprocess.run(['fswebcam', '-r', cap_resolution, file_path])
+cp = subprocess.run(['fswebcam', '--skip', '5', '-r', cap_resolution, file_path])
 if cp.returncode != 0:
     sys.exit(1)
 
