@@ -9,5 +9,5 @@ if [ $? -gt 0 ]; then
     exit 1
 fi
 ${basedir}util/jsay.sh "ロボです。写真撮りました。"
-python3 ${basedir}util/fileUpload2Slack.py ${filePath} photo -m ロボガシャシントリマシタ。
+python3 ${basedir}util/fileUpload2Slack.py ${filePath} C8Q8UQ71D -m ロボガシャシントリマシタ。
 # node /home/yamap55/raspberrypi-home/googledrive/googledrive-upload.js ${filePath}
