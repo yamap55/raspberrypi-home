@@ -1,4 +1,4 @@
-from slacker import Slacker
+from slack_sdk import WebClient
 import datetime
 import os
 import json
@@ -26,5 +26,5 @@ with open("/home/yamap55/raspberrypi-home/secret/birthday-list.txt", "r") as f:
 
             with open(SETTING_FILE_PATH, 'r') as f:
                 config  = json.load(f)
-                slack = Slacker(config['SLACK_TOKEN'])
-                slack.chat.post_message(NOTIFICATION_CHANNEL, message.format(y), as_user=True)
+                slack = WebClient(token=config['SLACK_TOKEN'])
+                slack.chat_postMessage(channel=NOTIFICATION_CHANNEL, text=message.format(y))

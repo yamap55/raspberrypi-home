@@ -7,7 +7,7 @@
 import argparse
 import os
 import json
-from slacker import Slacker
+from slack_sdk import WebClient
 
 SETTING_FILE_PATH = '/home/yamap55/raspberrypi-home/config.json'
 
@@ -26,11 +26,11 @@ def main():
 
     with open(SETTING_FILE_PATH, 'r') as f:
         config  = json.load(f)
-        slack = Slacker(config['SLACK_TOKEN'])
+        slack = WebClient(token=config['SLACK_TOKEN'])
         if (args.message):
-            slack.chat.post_message(channel, args.message ,as_user=True)
+            slack.chat_postMessage(channel=channel, text=args.message)
 
-        slack.files.upload(filePath, filename=fileName, channels=channel)
+        slack.files_upload(file=filePath, filename=fileName, channels=channel)
 
 if __name__=='__main__':
     main()
